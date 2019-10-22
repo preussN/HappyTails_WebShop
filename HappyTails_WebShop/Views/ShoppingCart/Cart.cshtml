@@ -1,0 +1,43 @@
+﻿@using HappyTails_WebShop.Models
+
+@{
+    ViewBag.Title = "Shopping cart";
+}
+
+<br />
+<br />
+<h2>Your Shopping Cart</h2>
+<br />
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Sub total</th>
+        <th>Options</th>
+    </tr>
+    @{
+        decimal? totalPrice = 0;
+    }
+    @foreach (CartItem item in (List<CartItem>)Session["cart"])
+    {
+        totalPrice += item.Prod.Price * item.Quantity;
+
+        <tr>
+            <td>@item.Prod.Name</td>
+            <td>@item.Prod.Price SEK</td>
+            <td>@item.Quantity</td>
+            <td>@(item.Prod.Price * item.Quantity) SEK</td>
+            <td>
+                <p><a class="btn btn-danger" href="@Url.Action("DeleteCartItem", "ShoppingCart", new { id = item.Prod.ProductID }, null)">Delete</a></p>
+            </td>
+        </tr>
+    }
+    <tr>
+        <td align="right" style="font-size: medium"><b>Total cost:</b></td>
+        <td style="font-size: medium"><b>@totalPrice SEK</b></td>
+    </tr>
+</table>
+<br />
+<br />
+@Html.ActionLink("Continue shopping", "Index", "Products")

@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "SuccessfulNewUser";
+}
+
+<br />
+<br />
+<h2>Registration was successful!</h2>
+
+<!--ADD A CELEBRATION PICTURE-->
+<div>
+    <img class="center-block" src="~/Content/Pictures/bg_register_success.png" height="200px" alt="Successful_registration" />
+</div>
+<br />
+<hr />
+
+<div class="container">
+    <br />
+    <br />
+    <h4>Would you like to go to the login?</h4>
+    @Html.ActionLink("YES, take me to the login!", "Index", "Login")
+    <br />
+    <br />
+    <br />
+    <br />
+</div>

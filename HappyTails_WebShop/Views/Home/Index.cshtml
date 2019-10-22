@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<div>
+    <img src="~/Content/Pictures/group_of_pets_TheMill.jpg" height="500px" alt="Group_of_pets"/>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>All products</h2>
+        <p>Scroll through products for dogs, cats, fishes and small animals like hamsters. Or maybe all of them!</p>
+        <!--Create action links-->
+        <p><a class="btn btn-primary" href=@Url.Action("Index", "Products")>Show products &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Dogs</h2>
+        <p>All products that have been categorized for dogs you can find here. Food, treats, toys and clothes.</p>
+        <p><a class="btn btn-primary" href=@Url.Action("ShowDogProducts", "Products")>Show products &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Cats</h2>
+        <p>Here you can find products for cats, such as food, treats and toys.</p>
+        <p><a class="btn btn-primary" href=@Url.Action("ShowCatProducts", "Products")>Show products &raquo;</a></p>
+
+    </div>
+</div>

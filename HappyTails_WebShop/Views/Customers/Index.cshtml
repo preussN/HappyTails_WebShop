@@ -1,0 +1,70 @@
+﻿@model IEnumerable<HappyTails_WebShop.Customer>
+
+@{
+    ViewBag.Title = "My profile";
+}
+
+<br />
+<br />
+<h2>My profile</h2>
+
+<h4>Your customer details.</h4>
+<br />
+<hr />
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Street)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Street)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                <p><a class="btn btn-info" href="@Url.Action("Edit", "Customers", new { id = item.CustomerID })">Edit</a></p>
+            </td>
+            <td>
+                <p><a class="btn btn-danger" href="@Url.Action("Delete", "Customers", new { id = item.CustomerID}, null)">Delete Account</a></p>
+            </td>
+        </tr>
+    }
+
+</table>
+
